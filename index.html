@@ -3,109 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contagem Regressiva</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Great+Vibes&display=swap" rel="stylesheet">
-    <style>
-        body {
-            background-color: #ffffff;
-            color: #d4af37;
-            font-family: 'Arial', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
-            text-align: center;
-            flex-direction: column;
-            padding: 20px;
-            box-sizing: border-box;
-            overflow: hidden;
-        }
-        h1 {
-            font-family: 'Great Vibes', cursive;
-            font-size: 4rem;
-            color: #d4af37;
-            text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
-        }
-        h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            margin-bottom: 40px;
-            color: #d4af37;
-        }
-        #countdown {
-            font-size: 5rem;
-            font-weight: bold;
-            color: #d4af37;
-            text-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
-            transition: all 0.3s ease-in-out;
-        }
-        .balloon {
-            position: absolute;
-            bottom: -100px;
-            width: 50px;
-            height: 70px;
-            background-color: #d4af37;
-            border-radius: 50%;
-            animation: floatUp 15s infinite ease-in-out;
-            opacity: 0.7;
-        }
-        @keyframes floatUp {
-            0% { transform: translateY(0); opacity: 0; }
-            50% { opacity: 1; }
-            100% { transform: translateY(-110vh); opacity: 0; }
-        }
-        @media (max-width: 768px) {
-            #countdown {
-                font-size: 3rem;
-            }
-            h1 {
-                font-size: 3.5rem;
-            }
-        }
-        @media (max-width: 480px) {
-            #countdown {
-                font-size: 2rem;
-            }
-            h1 {
-                font-size: 3rem;
-            }
-        }
-    </style>
+    <title>Contagem Regressiva Elegante - 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Great+Vibes&family=Cormorant+Garamond:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="src/styles.css">
 </head>
 <body>
-    <h1>Família de Carvalho Santana</h1>
-    <h2>Contagem Regressiva 2026</h2>
-    <div id="countdown"></div>
-    <script>
-        function updateCountdown() {
-            const now = new Date();
-            const nextYear = now.getFullYear() + 1;
-            const newYear = new Date(`January 1, ${nextYear} 00:00:00`).getTime();
-            const timeLeft = newYear - now;
-            
-            const hours = Math.floor(timeLeft / (1000 * 60 * 60));
-            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
-            
-            document.getElementById('countdown').innerHTML = 
-                `${hours}h ${minutes}m ${seconds}s`;
-            
-            requestAnimationFrame(updateCountdown);
-        }
-        updateCountdown();
+    <div class="particles" id="particles"></div>
+
+    <div class="container" id="mainContainer">
+        <h1>Família de Carvalho Santana</h1>
+        <h2>Contagem Regressiva 2026</h2>
         
-        function createBalloons() {
-            for (let i = 0; i < 15; i++) {
-                let balloon = document.createElement("div");
-                balloon.classList.add("balloon");
-                balloon.style.left = Math.random() * 100 + "vw";
-                balloon.style.animationDuration = (Math.random() * 3 + 2) + "s";
-                document.body.appendChild(balloon);
-                setTimeout(() => balloon.remove(), 5000);
-            }
-        }
-        setInterval(createBalloons, 1500);
-    </script>
+        <div class="countdown-wrapper">
+            <div class="time-unit">
+                <div class="time-value" id="days">00</div>
+                <div class="time-label">Dias</div>
+            </div>
+            <div class="time-unit">
+                <div class="time-value" id="hours">00</div>
+                <div class="time-label">Horas</div>
+            </div>
+            <div class="time-unit">
+                <div class="time-value" id="minutes">00</div>
+                <div class="time-label">Minutos</div>
+            </div>
+            <div class="time-unit">
+                <div class="time-value" id="seconds">00</div>
+                <div class="time-label">Segundos</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="final-countdown" id="finalCountdown">
+        <div class="final-number" id="finalNumber">60</div>
+    </div>
+
+    <script src="src/script.js"></script>
 </body>
 </html>
