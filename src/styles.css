@@ -9,13 +9,41 @@ body {
     color: #fff;
     font-family: 'Cormorant Garamond', serif;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     height: 100vh;
     margin: 0;
     text-align: center;
     position: relative;
     overflow: hidden;
+    padding: 40px;
+}
+
+.family-photo-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('assets/Adobe Express - file.png');
+    background-size: 90%;
+    background-position: center 55%;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+.family-photo-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, 
+        rgba(10, 10, 10, 0.4) 0%, 
+        rgba(26, 26, 46, 0.3) 50%, 
+        rgba(10, 10, 10, 0.4) 100%);
+    backdrop-filter: blur(1px);
 }
 
 .particles {
@@ -45,15 +73,15 @@ body {
 .container {
     position: relative;
     z-index: 10;
-    padding: 60px 40px;
-    background: rgba(26, 26, 46, 0.85);
-    backdrop-filter: blur(20px);
+    padding: 20px 30px;
+    background: rgba(26, 26, 46, 0.02);
+    backdrop-filter: blur(5px);
     border-radius: 30px;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5),
                 0 0 100px rgba(192, 192, 192, 0.1),
                 inset 0 1px 1px rgba(255, 255, 255, 0.1);
     border: 1px solid rgba(192, 192, 192, 0.2);
-    max-width: 900px;
+    max-width: 600px;
     animation: fadeInScale 1s ease-out;
 }
 
@@ -83,12 +111,12 @@ body {
 
 h1 {
     font-family: 'Great Vibes', cursive;
-    font-size: 4.5rem;
+    font-size: 2.5rem;
     background: linear-gradient(135deg, #c0c0c0 0%, #ffffff 50%, #c0c0c0 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     text-shadow: 0 0 30px rgba(192, 192, 192, 0.5);
     animation: shimmer 3s infinite linear;
     background-size: 200% 100%;
@@ -102,11 +130,11 @@ h1 {
 
 h2 {
     font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     font-weight: 400;
     color: #c0c0c0;
-    margin-bottom: 50px;
-    letter-spacing: 6px;
+    margin-bottom: 25px;
+    letter-spacing: 4px;
     text-transform: uppercase;
     opacity: 0.9;
     position: relative;

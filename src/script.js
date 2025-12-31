@@ -39,7 +39,15 @@ function updateCountdown() {
             deactivateFinalCountdown();
         }
         
-        document.getElementById('days').textContent = String(days).padStart(2, '0');
+        const daysElement = document.querySelector('.time-unit:nth-child(1)');
+        
+        if (days === 0) {
+            daysElement.style.display = 'none';
+        } else {
+            daysElement.style.display = 'flex';
+            document.getElementById('days').textContent = String(days).padStart(2, '0');
+        }
+        
         document.getElementById('hours').textContent = String(hours).padStart(2, '0');
         document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
         document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
